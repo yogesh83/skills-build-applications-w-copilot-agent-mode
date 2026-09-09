@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 
+const usersEndpoint = import.meta.env.VITE_CODESPACE_NAME?.trim()
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/`
+  : '/api/users/'
+
 function Users() {
   const [users, setUsers] = useState([])
   const [error, setError] = useState('')
   useEffect(() => {
     const controller = new AbortController()
-    fetchCollection('users', controller.signal).then(setUsers).catch((reason) => {
+    fetchCollection(usersEndpoint, controller.signal, 'users').then(setUsers).catch((reason) => {
       if (reason.name !== 'AbortError') setError(reason.message)
     })
     return () => controller.abort()
