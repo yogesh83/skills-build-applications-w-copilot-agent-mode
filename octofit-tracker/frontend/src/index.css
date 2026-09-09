@@ -1,0 +1,57 @@
+:root {
+  --ink: #1d2b2a;
+  --muted: #667774;
+  --paper: #f7f3ea;
+  --line: #d7ded6;
+  --accent: #e36b45;
+  --mint: #c9e4d5;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  letter-spacing: -0.04em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 0.98;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: clamp(2.4rem, 7vw, 6rem);
+  line-height: 0.95;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 720px) {
+  h2 {
+    font-size: 3.4rem;
+  }
+}
