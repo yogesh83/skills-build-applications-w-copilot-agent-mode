@@ -15,6 +15,10 @@ const baseUrl = codespaceName
 
 app.use(express.json())
 
+app.get('/', (_request, response) => {
+  response.json({ name: 'OctoFit Tracker API', status: 'ok', health: '/api/health' })
+})
+
 app.get('/api/health', (_request, response) => {
   response.json({ status: 'ok', baseUrl })
 })
